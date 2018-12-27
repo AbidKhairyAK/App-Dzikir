@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, View, Text,FlatList,StyleSheet } from 'react-native';
+import { Button, View,StyleSheet, Image } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { Accordion, Card, CardItem, Body, Text } from 'native-base';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -9,13 +10,14 @@ class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:'#162e40' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-around', backgroundColor:'#162e40' }}>
         <Button
           title="Pagi"
           onPress={() => {
-            this.props.navigation.navigate('Details', {
+            this.props.navigation.navigate('Sore', {
               itemId: 86,
             });
+          color='black'
           }}
         />
         <Button
@@ -82,7 +84,7 @@ class SoreScreen extends React.Component {
     const itemId = navigation.getParam('itemId', 'NO-ID');
 
     return (
-      <View style={{ flex: 1, alignItems: 'center',flexDirection: 'row', justifyContent: 'center', backgroundColor:'#e5e4e5' }}>
+      <View style={{ flex: 1, alignItems: 'center',flexDirection: 'row', justifyContent: 'space-around', backgroundColor:'#e5e4e5' }}>
         <Button
           title="Sugro"
           onPress={() => {
@@ -104,6 +106,12 @@ class SoreScreen extends React.Component {
   }
 }
 
+const dataArray = [
+  { title: "First Element", content: "Lorem ipsum dolor sit amet" },
+  { title: "Second Element", content: "Lorem ipsum dolor sit amet" },
+  { title: "Third Element", content: "Lorem ipsum dolor sit amet" }
+];
+
 class DoaScreen extends React.Component {
   static navigationOptions = {
     title: 'Doa Harian',
@@ -115,17 +123,10 @@ class DoaScreen extends React.Component {
 
     return (
       <View style={{ flex: 1, justifyContent: 'center', backgroundColor:'#e5e4e5' }}>
-        <FlatList
-          data={[
-            {key: 'Doa Mau Makan'},
-            {key: 'Doa Mau Tidur'},
-            {key: 'Doa Masuk Rumah'},
-            {key: 'Doa Ketika Turun Hujan'},
-            {key: 'Doa Buat Orang Tua'},
-            {key: 'Doa Masuk Masjid'},
-          ]}
-          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
-        />
+          <Accordion 
+            style={{margin:10, backgroundColor:'#fff'}}
+            dataArray={dataArray} expanded={0} 
+          />
       </View>
     );
   }
@@ -141,8 +142,22 @@ class SugroScreen extends React.Component {
     const itemId = navigation.getParam('itemId', 'NO-ID');
 
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:'#e5e4e5' }}>
-        <Text>Sugro</Text>
+      <View style={{ flex:1, backgroundColor:'#e5e4e5' }}>
+        <Card>
+          <CardItem>
+            <Body>
+              <Text>Surat Al Fatihah</Text>
+            </Body>
+          </CardItem>
+        </Card>
+        <Card>
+          <CardItem>
+            <Body>
+              <Text>بِسْــــــــمِ اللَّــــــــهِ الرَّحْمَــــــــنِ الرَّحِيــــــــمِ {1} الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ {2} الرَّحْمَنِ الرَّحِيمِ {3} مَالِكِ يَوْمِ الدِّينِ {4} إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ {5} اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ {6} صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلاَالضَّآلِّينَ {7}
+</Text>
+            </Body>
+          </CardItem>
+        </Card>
       </View>
     );
   }
