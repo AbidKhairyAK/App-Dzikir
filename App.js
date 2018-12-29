@@ -1,10 +1,22 @@
 import React from 'react';
-import { Button, View, Text,TouchableHighlight,Alert,Image } from 'react-native';
+import { Icon } from 'native-base';
+import { Icon, View, Text,TouchableHighlight,Alert,Image } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation'; 
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
     headerTitle: 'Dzikir Pagi & Petang',
+    headerStyle: {
+      backgroundColor: '#00dfbe'
+    },
+    headerTintColor: '#FFFFFF',
+    headerRight: (
+      <Icon
+        name="ios-help-circle-outline"
+        style={{ paddingRight: 16, color: 'white' }}
+        onPress={() => navigation.navigate('About')}
+      />
+    ),
   };
 
   render() {
