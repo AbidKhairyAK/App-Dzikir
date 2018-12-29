@@ -1,74 +1,73 @@
 import React from 'react';
-import { Button, View,StyleSheet, Image } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
-import { Accordion, Card, CardItem, Body, Text } from 'native-base';
+import { Button, View, Text,TouchableHighlight,Alert,Image } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation'; 
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
-    title: 'Dzikir Pagi & Petang',
+    headerTitle: 'Dzikir Pagi & Petang',
   };
 
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-around', backgroundColor:'#162e40' }}>
-        <Button
-          title="Pagi"
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:'#162e40' }}>
+        <TouchableHighlight 
+          onPress={() => {
+            this.props.navigation.navigate('Pagi', {
+              itemId: 86,
+            });
+          }}
+          underlayColor="white">
+          <View>
+          <Image
+            style={{width: 150, height: 150}}
+            source={require('./component/images/pagi.png')}
+          />
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight 
           onPress={() => {
             this.props.navigation.navigate('Sore', {
               itemId: 86,
             });
-          color='black'
           }}
-        />
-        <Button
-          title="Petang"
-          onPress={() => {
-            this.props.navigation.navigate('Sore', {
-              itemId: 86,
-            });
-          color='black'
-          }}
-        />
-        <Button
-          title="Doa Harian"
+          underlayColor="white">
+          <View>
+          <Image
+            style={{width: 150, height: 150}}
+            source={require('./component/images/sore.png')}
+          />
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight 
           onPress={() => {
             this.props.navigation.navigate('Doa', {
               itemId: 86,
             });
           }}
-        />
+          underlayColor="white">
+          <View>
+          <Image
+            style={{width: 150, height: 150}}
+            source={require('./component/images/doa.png')}
+          />
+          </View>
+        </TouchableHighlight>
       </View>
     );
   }
 }
 
-class DetailsScreen extends React.Component {
+class PagiScreen extends React.Component {
   static navigationOptions = {
     title: 'Dzikir Pagi',
   };
 
   render() {
     const { navigation } = this.props;
-    const itemId = navigation.getParam('itemId', 'NO-ID');
 
     return (
-      <View style={{ flex: 1, alignItems: 'center',flexDirection: 'row', justifyContent: 'center', backgroundColor:'#e5e4e5' }}>
-        <Button
-          title="Sugro"
-          onPress={() => {
-            this.props.navigation.navigate('Sugro', {
-              itemId: 86,
-            });
-          }}
-        />
-        <Button
-          title="Kubro"
-          onPress={() => {
-            this.props.navigation.navigate('Kubro', {
-              itemId: 86,
-            });
-          }}
-        />
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Halaman Dzikir Pagi</Text>
       </View>
     );
   }
@@ -81,36 +80,14 @@ class SoreScreen extends React.Component {
 
   render() {
     const { navigation } = this.props;
-    const itemId = navigation.getParam('itemId', 'NO-ID');
 
     return (
-      <View style={{ flex: 1, alignItems: 'center',flexDirection: 'row', justifyContent: 'space-around', backgroundColor:'#e5e4e5' }}>
-        <Button
-          title="Sugro"
-          onPress={() => {
-            this.props.navigation.navigate('Sugro', {
-              itemId: 86,
-            });
-          }}
-        />
-        <Button
-          title="Kubro"
-          onPress={() => {
-            this.props.navigation.navigate('Kubro', {
-              itemId: 86,
-            });
-          }}
-        />
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Halaman Dzikir Sore</Text>
       </View>
     );
   }
 }
-
-const dataArray = [
-  { title: "First Element", content: "Lorem ipsum dolor sit amet" },
-  { title: "Second Element", content: "Lorem ipsum dolor sit amet" },
-  { title: "Third Element", content: "Lorem ipsum dolor sit amet" }
-];
 
 class DoaScreen extends React.Component {
   static navigationOptions = {
@@ -119,62 +96,10 @@ class DoaScreen extends React.Component {
 
   render() {
     const { navigation } = this.props;
-    const itemId = navigation.getParam('itemId', 'NO-ID');
 
     return (
-      <View style={{ flex: 1, justifyContent: 'center', backgroundColor:'#e5e4e5' }}>
-          <Accordion 
-            style={{margin:10, backgroundColor:'#fff'}}
-            dataArray={dataArray} expanded={0} 
-          />
-      </View>
-    );
-  }
-}
-
-class SugroScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Sugro',
-  };
-
-  render() {
-    const { navigation } = this.props;
-    const itemId = navigation.getParam('itemId', 'NO-ID');
-
-    return (
-      <View style={{ flex:1, backgroundColor:'#e5e4e5' }}>
-        <Card>
-          <CardItem>
-            <Body>
-              <Text>Surat Al Fatihah</Text>
-            </Body>
-          </CardItem>
-        </Card>
-        <Card>
-          <CardItem>
-            <Body>
-              <Text>بِسْــــــــمِ اللَّــــــــهِ الرَّحْمَــــــــنِ الرَّحِيــــــــمِ {1} الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ {2} الرَّحْمَنِ الرَّحِيمِ {3} مَالِكِ يَوْمِ الدِّينِ {4} إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ {5} اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ {6} صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلاَالضَّآلِّينَ {7}
-</Text>
-            </Body>
-          </CardItem>
-        </Card>
-      </View>
-    );
-  }
-}
-
-class KubroScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Kubro',
-  };
-
-  render() {
-    const { navigation } = this.props;
-    const itemId = navigation.getParam('itemId', 'NO-ID');
-
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:'#e5e4e5' }}>
-        <Text>Kubro</Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Halaman Doa</Text>
       </View>
     );
   }
@@ -183,28 +108,14 @@ class KubroScreen extends React.Component {
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
-    Details: DetailsScreen,
+    Pagi: PagiScreen,
     Sore: SoreScreen,
     Doa: DoaScreen,
-    Sugro: SugroScreen,
-    Kubro: KubroScreen,
   },
   {
     initialRouteName: 'Home',
   }
 );
-
-const styles = StyleSheet.create({
-  container: {
-   flex: 1,
-   paddingTop: 22
-  },
-  item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
-  },
-})
 
 const AppContainer = createAppContainer(RootStack);
 
@@ -213,3 +124,4 @@ export default class App extends React.Component {
     return <AppContainer />;
   }
 }
+
