@@ -1,7 +1,8 @@
 import React from 'react';
-import { Icon } from 'native-base';
-import { Icon, View, Text,TouchableHighlight,Alert,Image } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation'; 
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { View, Text,TouchableHighlight,Alert,Image } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import PagiScreen from './component/layout/PagiScreen';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -11,10 +12,8 @@ class HomeScreen extends React.Component {
     },
     headerTintColor: '#FFFFFF',
     headerRight: (
-      <Icon
-        name="ios-help-circle-outline"
-        style={{ paddingRight: 16, color: 'white' }}
-        onPress={() => navigation.navigate('About')}
+      <Icon 
+        name="menu"
       />
     ),
   };
@@ -64,22 +63,6 @@ class HomeScreen extends React.Component {
           />
           </View>
         </TouchableHighlight>
-      </View>
-    );
-  }
-}
-
-class PagiScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Dzikir Pagi',
-  };
-
-  render() {
-    const { navigation } = this.props;
-
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Halaman Dzikir Pagi</Text>
       </View>
     );
   }
