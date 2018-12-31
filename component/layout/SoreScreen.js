@@ -4,7 +4,7 @@ import { View,TouchableHighlight,Image, Text } from 'react-native';
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 
-export default class PagiScreen extends React.Component {
+export default class SoreScreen extends React.Component {
   static navigationOptions = {
     headerTitle: 'Dzikir Pagi & Petang',
     headerStyle: {
@@ -20,7 +20,7 @@ export default class PagiScreen extends React.Component {
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:'#162e40' }}>
         <TouchableHighlight 
           onPress={() => {
-            this.props.navigation.navigate('Sugropagi', {
+            this.props.navigation.navigate('Sugrosore', {
               itemId: 86,
             });
           }}
@@ -34,7 +34,7 @@ export default class PagiScreen extends React.Component {
         </TouchableHighlight>
         <TouchableHighlight 
           onPress={() => {
-            this.props.navigation.navigate('Kubropagi', {
+            this.props.navigation.navigate('Kubrosore', {
               itemId: 86,
             });
           }}
