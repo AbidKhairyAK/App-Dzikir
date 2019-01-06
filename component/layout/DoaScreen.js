@@ -1,8 +1,8 @@
 import React from 'react';
-import {Icon,Content, Card, CardItem,Body,Text} from 'native-base';
+import {Icon, Card, CardItem,Body,Text,Content, List, ListItem, Left, Right} from 'native-base';
 import { View,TouchableHighlight,Image } from 'react-native';
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
-
+import ListDoa from '../../data/ListDoa.json';
 
 export default class DoaScreen extends React.Component {
   static navigationOptions = {
@@ -23,27 +23,22 @@ export default class DoaScreen extends React.Component {
       const { navigation } = this.props;
   
       return (
-        <View style={{flex:1, backgroundColor:'#e5e5e7'}}>
+        <View style={{flex:1, backgroundColor:'#ffffff'}}>
           <View style={{flex:2, margin:7}}>
             <Content>
-              <Card>
-                <CardItem>
-                  <Body>
-                    <Text>
-                      Cek Halaman Doa Harian
-                    </Text>
-                  </Body>
-                </CardItem>
-              </Card>
-              <Card>
-                <CardItem>
-                  <Body>
-                    <Text>
-                      Cek Halaman Doa Harianaksdlandjasnjasdasdasndkasndkajsndkajnds
-                    </Text>
-                  </Body>
-                </CardItem>
-              </Card>
+              {ListDoa.map((data) => (
+                <List>
+                  <ListItem style={{ backgroundColor: "#e5e5e7" }}
+                  >
+                    <Left>
+                      <Text style={{marginLeft:7}}>{data.judul}</Text>
+                    </Left>
+                    <Right>
+                      <Icon name="arrow-forward" />
+                    </Right>
+                  </ListItem>
+                </List>
+              ))}
             </Content>
           </View>
         </View>

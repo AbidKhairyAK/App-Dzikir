@@ -9,6 +9,7 @@ import SugroPagiScreen from './component/layout/SugroPagiScreen';
 import SugroSoreScreen from './component/layout/SugroSoreScreen';
 import KubroPagiScreen from './component/layout/KubroPagiScreen';
 import KubroSoreScreen from './component/layout/KubroSoreScreen';
+import DetailDoa from './component/layout/DetailDoa';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -98,6 +99,7 @@ const RootStack = createStackNavigator(
     Sugrosore: SugroSoreScreen,
     Kubropagi: KubroPagiScreen,
     Kubrosore: KubroSoreScreen,
+    Detail: DetailDoa,
   },
   {
     initialRouteName: 'Home',

@@ -2,7 +2,7 @@ import React from 'react';
 import {Icon} from 'native-base';
 import { View,TouchableHighlight,Image, Text } from 'react-native';
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
-
+import DzikirSoreKubro from '../../data/DzikirSoreKubro';
 
 export default class KubroSoreScreen extends React.Component {
   static navigationOptions = {
@@ -23,8 +23,8 @@ export default class KubroSoreScreen extends React.Component {
       const { navigation } = this.props;
   
       return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>Halaman Kubro</Text>
+        <View style={{flex:1, backgroundColor:'#ecf2f5'}}>
+          
         </View>
       );
     }
