@@ -1,6 +1,6 @@
 import React from 'react';
 import {Icon, Card, CardItem,Body,Text,Content, List, ListItem, Left, Right} from 'native-base';
-import { View,TouchableHighlight,Image, StyleSheet } from 'react-native';
+import { View,TouchableHighlight,Image, StyleSheet,ScrollView } from 'react-native';
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
 import DataDoa from '../../data/DataDoa';
 
@@ -23,25 +23,29 @@ export default class DoaScreen extends React.Component {
 
   
     render() {
-      const { navigation } = this.props;
-      // const id = this.props.navigation.getParam("")  
+      // const { navigation } = this.props;
+      const id = this.props.navigation.getParam('itemId');
+      const index = parseInt(id) - 1;
       return (
         <View style={{flex:1, backgroundColor:'#e5e5e7'}}>
-          <View style={{flex:2, margin:7}}>
+          <ScrollView style={{flex:2, margin:7}}>
             <Card style={styles.card}>
-              <CardItem>
-                <Text style={styles.judul}>Doa Sebelum Makan</Text>
+              <CardItem header>
+                <Text style={styles.judul}>{DataDoa[index].judul}</Text>
               </CardItem>
               <CardItem>
                 <Body>
-                  <Text style={styles.arab}>اَللّٰهُمَّ بَارِكْ لَنَا فِيْمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ</Text>
-                  <Text style={styles.arablatin}>Alloohumma barik lanaa fiimaa razatanaa waqinaa 'adzaa bannar </Text>
-                  <Text style={styles.terjemah}>Ya Allah, berkahilah kami dalam rezeki yang telah Engkau berikan kepada kami dan peliharalah kami dari siksa api neraka </Text>
+                  <Text style={styles.arab}>{DataDoa[index].arab}</Text>
+                  <Text style={styles.arablatin}>{DataDoa[index].arablatin}</Text>
+                  <Text style={styles.terjemah}>{DataDoa[index].terjemah}</Text>
                   <Text></Text>
                 </Body>
               </CardItem>
+              <CardItem footer>
+                <Text style={styles.sumber}>{DataDoa[index].sumber}</Text>
+              </CardItem>
             </Card>
-          </View>
+          </ScrollView>
         </View>
       );
     }
@@ -55,14 +59,6 @@ export default class DoaScreen extends React.Component {
     flex: 1,
     textAlign: 'center',
     color: '#162e40',
-  },
-  headerTitle: {
-    fontFamily: 'SourceSansPro',
-    fontSize: 17,
-    fontWeight: 'bold',
-    flex: 1,
-    textAlign: 'center',
-    color: '#333333',
   },
   arab: {
     fontSize:35,
@@ -84,5 +80,11 @@ export default class DoaScreen extends React.Component {
   },
   card: {
     backgroundColor:'#f3f2f3',
+  }, 
+  sumber: {
+    fontSize:10,
+    fontFamily: 'SourceSans',
+    fontStyle:'italic',
+    textAlign: 'center',
   }
 })

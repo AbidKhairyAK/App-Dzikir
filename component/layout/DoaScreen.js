@@ -1,6 +1,6 @@
 import React from 'react';
 import {Icon, Card, CardItem,Body,Text,Content, List, ListItem, Left, Right} from 'native-base';
-import { View,TouchableHighlight,Image } from 'react-native';
+import { View,TouchableHighlight,Image,TouchableOpacity, StyleSheet } from 'react-native';
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
 import ListDoa from '../../data/ListDoa.json';
 
@@ -27,17 +27,14 @@ export default class DoaScreen extends React.Component {
           <View style={{flex:2, margin:7}}>
             <Content>
               {ListDoa.map((data) => (
-                <List>
-                  <ListItem style={{ backgroundColor: "#e5e5e7" }}
-                  >
-                    <Left>
-                      <Text style={{marginLeft:7}}>{data.judul}</Text>
-                    </Left>
-                    <Right>
-                      <Icon name="arrow-forward" />
-                    </Right>
-                  </ListItem>
-                </List>
+                <TouchableOpacity
+                   style={styles.button}
+                   onPress={() => this.props.navigation.navigate('Detail', {
+                    itemId: data.id,
+                   })}
+                 >
+                   <Text>{data.judul}</Text>
+                </TouchableOpacity>
               ))}
             </Content>
           </View>
@@ -45,3 +42,13 @@ export default class DoaScreen extends React.Component {
       );
     }
   }
+
+
+  const styles = StyleSheet.create({
+    button: {
+      marginTop:5,
+      alignItems: 'center',
+      backgroundColor: '#e5e5e7',
+      padding: 8
+    },
+  })
