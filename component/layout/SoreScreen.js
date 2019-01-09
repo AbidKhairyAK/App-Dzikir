@@ -17,7 +17,7 @@ export default class SoreScreen extends React.Component {
     const { navigation } = this.props;
 
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:'#162e40' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:'#ecf2f5' }}>
         <TouchableHighlight 
           onPress={() => {
             this.props.navigation.navigate('Sugrosore', {

@@ -3,6 +3,7 @@ import {Icon, Card, CardItem,Body,Text,Content, List, ListItem, Left, Right} fro
 import { View,TouchableHighlight,Image, StyleSheet,ScrollView } from 'react-native';
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
 import DataDoa from '../../data/DataDoa';
+// import HelveticaWorld-Bold from '../../assets/HelveticaWorld-Bold';
 
 
 
@@ -62,10 +63,11 @@ export default class DoaScreen extends React.Component {
   },
   arab: {
     fontSize:35,
-    fontFamily: 'JannaLT-Regular',
+    fontFamily: 'lotus-linotype-light',
     color:'#333333',
   },
   arablatin: {
+    lineHeight:20,
     marginTop: 20,
     fontStyle:'italic',
     color:'#666666',
@@ -73,6 +75,7 @@ export default class DoaScreen extends React.Component {
     fontSize: 15,
   },
   terjemah: {
+    lineHeight:20,
     fontFamily: 'SourceSans',
     marginTop:10,
     fontSize:15,

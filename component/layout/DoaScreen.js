@@ -33,7 +33,7 @@ export default class DoaScreen extends React.Component {
                     itemId: data.id,
                    })}
                  >
-                   <Text>{data.judul}</Text>
+                   <Text style={styles.listJudul}>{data.judul}</Text>
                 </TouchableOpacity>
               ))}
             </Content>
@@ -46,9 +46,17 @@ export default class DoaScreen extends React.Component {
 
   const styles = StyleSheet.create({
     button: {
-      marginTop:5,
-      alignItems: 'center',
+      marginTop:10,
+      marginLeft:10,
+      marginRight:10,
       backgroundColor: '#e5e5e7',
-      padding: 8
+      padding:15
     },
+    listJudul: {
+      fontFamily: 'SourceSansPro',
+      fontSize: 17,
+      fontWeight: 'bold',
+      flex: 1,
+      color: '#333333',
+    }
   })

@@ -81,11 +81,12 @@ const styles = StyleSheet.create({
     color: '#333333',
   },
   arab: {
-    fontSize:25,
-    fontFamily: 'JannaLT-Regular',
+    fontSize:30,
+    fontFamily: 'lotus-linotype-light',
     color:'#333333',
   },
   arablatin: {
+    lineHeight:20,
     marginTop: 10,
     fontStyle:'italic',
     color:'#666666',
@@ -93,6 +94,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   terjemah: {
+    lineHeight:20,
     fontFamily: 'SourceSans',
     marginTop:10,
     fontSize:13,

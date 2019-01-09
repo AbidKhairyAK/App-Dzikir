@@ -39,9 +39,11 @@ class HomeScreen extends React.Component {
     ),
   };
 
+// warna dasar - 162e40
+  
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:'#162e40' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:'#ecf2f5' }}>
         <TouchableHighlight 
           onPress={() => {
             this.props.navigation.navigate('Pagi', {
