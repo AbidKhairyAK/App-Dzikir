@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icon, Card, CardItem,Body,Text,Content, List, ListItem, Left, Right} from 'native-base';
+import {Icon, Card, CardItem,Body,Text,Content, List, ListItem, Left, Right, Button} from 'native-base';
 import { View,TouchableHighlight,Image,TouchableOpacity, StyleSheet } from 'react-native';
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
 import ListDoa from '../../data/ListDoa.json';
@@ -27,14 +27,21 @@ export default class DoaScreen extends React.Component {
           <View style={{flex:2, margin:7}}>
             <Content>
               {ListDoa.map((data) => (
-                <TouchableOpacity
-                   style={styles.button}
-                   onPress={() => this.props.navigation.navigate('Detail', {
+                <ListItem thumbnail
+                  onPress={() => this.props.navigation.navigate('Detail', {
                     itemId: data.id,
                    })}
-                 >
-                   <Text style={styles.listJudul}>{data.judul}</Text>
-                </TouchableOpacity>
+                >
+                  <Left>
+                    <Text style={{fontSize:35}}>{data.id}</Text>
+                  </Left>
+                  <Body>
+                    <Text style={styles.listjudul}>{data.judul}</Text>
+                  </Body>
+                  <Right>
+                      <Icon name="arrow-forward" />
+                  </Right>
+                </ListItem>
               ))}
             </Content>
           </View>
@@ -50,7 +57,8 @@ export default class DoaScreen extends React.Component {
       marginLeft:10,
       marginRight:10,
       backgroundColor: '#e5e5e7',
-      padding:15
+      padding:15,
+      borderRadius:10
     },
     listJudul: {
       fontFamily: 'SourceSansPro',

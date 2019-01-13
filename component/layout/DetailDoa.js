@@ -1,25 +1,27 @@
 import React from 'react';
-import {Icon, Card, CardItem,Body,Text,Content, List, ListItem, Left, Right} from 'native-base';
+import {Icon, Card, CardItem,Body,Text,Content, List, ListItem, Left, Right, Header, Button, Title} from 'native-base';
 import { View,TouchableHighlight,Image, StyleSheet,ScrollView } from 'react-native';
-// import { createStackNavigator, createAppContainer } from 'react-navigation';
+import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
 import DataDoa from '../../data/DataDoa';
-// import HelveticaWorld-Bold from '../../assets/HelveticaWorld-Bold';
-
 
 
 export default class DoaScreen extends React.Component {
   static navigationOptions = {
-    headerTitle: 'Detail Doa',
-    headerStyle: {
-      backgroundColor: '#00dfbe'
-    },
-    headerTintColor: '#FFFFFF',
-    headerRight: (
-      <Icon 
-        name="md-more"
-        style={{ paddingRight: 16, color: 'white' }}
-      />
-    ),
+    header:null,
+  };
+
+  _menu = null;
+
+  setMenuRef = ref => {
+    this._menu = ref;
+  };
+
+  hideMenu = () => {
+    this._menu.hide();
+  };
+
+  showMenu = () => {
+    this._menu.show();
   };
 
   
@@ -29,6 +31,34 @@ export default class DoaScreen extends React.Component {
       const index = parseInt(id) - 1;
       return (
         <View style={{flex:1, backgroundColor:'#e5e5e7'}}>
+          <Header style={styles.header}>
+            <Left>
+              <Button transparent>
+                <Icon onPress={() => navigation.goBack(null)} name='arrow-back' />
+              </Button>
+            </Left>
+            <Body>
+              <Title>Detail Doa</Title>
+            </Body>
+            <Right>
+              <Button transparent>
+              <Icon ref={this.setMenuRef}
+                name='more'
+                onPress={this.showMenu}
+              />
+              
+              </Button>
+            </Right>
+          </Header>
+          <Menu>
+                <MenuItem onPress={this.hideMenu}>Menu item 1</MenuItem>
+                <MenuItem onPress={this.hideMenu}>Menu item 2</MenuItem>
+                <MenuItem onPress={this.hideMenu} disabled>
+                  Menu item 3
+                </MenuItem>
+                <MenuDivider />
+                <MenuItem onPress={this.hideMenu}>Menu item 4</MenuItem>
+              </Menu>
           <ScrollView style={{flex:2, margin:7}}>
             <Card style={styles.card}>
               <CardItem header>
@@ -53,6 +83,9 @@ export default class DoaScreen extends React.Component {
   }
 
   const styles = StyleSheet.create({
+  header: {
+    backgroundColor:'#00dfbe',
+  },
   judul: {
     fontFamily: 'SourceSansPro',
     fontSize: 17,

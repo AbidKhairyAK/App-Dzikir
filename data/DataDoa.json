@@ -1,6 +1,6 @@
 [
 	{
-		"id":"1",
+		"id":"01",
 		"judul":"Doa Sebelum Makan",
 		"arab":"اَللّٰهُمَّ بَارِكْ لَنَا فِيْمَا رَزَقْتَنَا وَقِنَا عَذَابَ النَّارِ",
 		"arablatin":"Alloohumma barik lanaa fiimaa razatanaa waqinaa 'adzaa bannar",
@@ -8,7 +8,7 @@
 		"sumber":"http://www.doaharianislami.com",
 	},
 	{
-		"id":"2",
+		"id":"02",
 		"judul":"Doa Setelah Makan",
 		"arab":"اَلْحَمْدُ ِللهِ الَّذِىْ اَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِيْ",
 		"arablatin":"Alhamdu lillaahil ladzii ath'amanaa wa saqoonaa wa ja'alnaa muslimiin",
@@ -16,7 +16,7 @@
 		"sumber":"http://www.doaharianislami.com",
 	},
 	{
-		"id":"3",
+		"id":"03",
 		"judul":"Doa Ketika Makan Lupa Membaca Doa",
 		"arab":"بِسْمِ اللهِ فِىِ أَوَّلِهِ وَآخِرِهِ",
 		"arablatin":"Bismillaahi fii awwalihi wa aakhirihi",
@@ -24,7 +24,7 @@
 		"sumber":"http://www.doaharianislami.com",
 	},
 	{
-		"id":"4",
+		"id":"04",
 		"judul":"Doa Sebelum Tidur",
 		"arab":"بِسْمِكَ اللّٰهُمَّ اَحْيَا وَاَمُوْتُ",
 		"arablatin":"Bismikallohumma ahya wa amuutu",
@@ -32,7 +32,7 @@
 		"sumber":"http://www.doaharianislami.com",
 	},
 	{
-		"id":"5",
+		"id":"05",
 		"judul":"Doa Ketika Mimpi Buruk",
 		"arab":"اَللّٰهُمَّ إِنّىِ أَعُوْذُ بِكَ مِنْ عَمَلِ الشَّيْطَانِ وَسَيِّئاَتِ اْلأَحْلاَمِ",
 		"arablatin":"Allaahumma innii a'uudzubika min 'amalisy syaithaani wa sayyiaatil ahlami",
@@ -40,7 +40,7 @@
 		"sumber":"http://www.doaharianislami.com",
 	},
 	{
-		"id":"6",
+		"id":"06",
 		"judul":"Doa Ketika Mendapat Mimpi Baik",
 		"arab":"اَلْحَمْدُ ِللهِ الَّذِيْ قَطْلَ الْحَاجَتِ",
 		"arablatin":"Alhamdulillahil ladzii qodzoo haajaati",
@@ -48,7 +48,7 @@
 		"sumber":"http://www.doaharianislami.com",
 	},
 	{
-		"id":"7",
+		"id":"07",
 		"judul":"Doa Bangun Tidur",
 		"arab":"اَلْحَمْدُ ِللهِ الَّذِىْ اَحْيَانَا بَعْدَمَآ اَمَاتَنَا وَاِلَيْهِ النُّشُوْرُ",
 		"arablatin":"Alhamdu lillahil ladzii ahyaanaa ba'da maa amaa tanaa wa ilahin nusyuuru",
@@ -56,7 +56,7 @@
 		"sumber":"http://www.doaharianislami.com",
 	},
 	{
-		"id":"8",
+		"id":"08",
 		"judul":"Doa Masuk Kamar Mandi",
 		"arab":"اَللّٰهُمَّ اِنّىْ اَعُوْذُبِكَ مِنَ الْخُبُثِ وَالْخَبَآئِثِ",
 		"arablatin":"Alloohumma Innii a'uudzubika minal khubutsi wal khoaaitsi",
@@ -64,7 +64,7 @@
 		"sumber":"http://www.doaharianislami.com",
 	},
 	{
-		"id":"9",
+		"id":"09",
 		"judul":"Doa Istinja",
 		"arab":"اَللّٰهُمَّ حَسِّنْ فَرْجِىْ مِنَ الْفَوَاخِشِ وَظَهِّرْ قَلْبِيْ مِنَ النِّفَاقِ",
 		"arablatin":"Alloohumma thahhir qolbii minan nifaaqi wa hashshin fajrii minal fawaahisyi",
