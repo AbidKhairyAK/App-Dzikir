@@ -30,13 +30,7 @@ class HomeScreen extends React.Component {
       alignSelf: 'center',
       flex: 1,
       flexGrow: 1
-    },
-    headerRight: (
-      <Icon 
-        name="md-more"
-        style={{ paddingRight: 16, color: 'white' }}
-      />
-    ),
+    }
   };
 
 // warna dasar - 162e40

@@ -6,7 +6,7 @@ import ListDoa from '../../data/ListDoa.json';
 
 export default class DoaScreen extends React.Component {
   static navigationOptions = {
-    headerTitle: 'Doa Harian',
+    headerTitle: 'Daftar Doa',
     headerStyle: {
       backgroundColor: '#00dfbe'
     },

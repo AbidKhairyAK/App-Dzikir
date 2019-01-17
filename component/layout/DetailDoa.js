@@ -1,64 +1,31 @@
 import React from 'react';
 import {Icon, Card, CardItem,Body,Text,Content, List, ListItem, Left, Right, Header, Button, Title} from 'native-base';
-import { View,TouchableHighlight,Image, StyleSheet,ScrollView } from 'react-native';
+import { View,TouchableHighlight,Image, StyleSheet,ScrollView,TouchableOpacity,Clipboard} from 'react-native';
 import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
 import DataDoa from '../../data/DataDoa';
 
+export default class DetailDoa extends React.Component {
+    static navigationOptions = {
+      headerTitle: 'Detail Doa',
+      headerStyle: {
+        backgroundColor: '#00dfbe'
+      },
+      headerTintColor: '#FFFFFF',
+    };
+    
+    id = this.props.navigation.getParam('itemId');
+    index = parseInt(this.id) - 1;
+    data = DataDoa[this.index];
+    text = this.data.judul +'\n \n'+ this.data.arab +'\n \n'+ this.data.terjemah;
 
-export default class DoaScreen extends React.Component {
-  static navigationOptions = {
-    header:null,
-  };
-
-  _menu = null;
-
-  setMenuRef = ref => {
-    this._menu = ref;
-  };
-
-  hideMenu = () => {
-    this._menu.hide();
-  };
-
-  showMenu = () => {
-    this._menu.show();
-  };
-
+    copy() {
+      Clipboard.setString(this.text);
+    }
   
     render() {
-      // const { navigation } = this.props;
-      const id = this.props.navigation.getParam('itemId');
-      const index = parseInt(id) - 1;
+      const index = parseInt(this.id) - 1;
       return (
         <View style={{flex:1, backgroundColor:'#e5e5e7'}}>
-          <Header style={styles.header}>
-            <Left>
-              <Button transparent>
-                <Icon onPress={() => navigation.goBack(null)} name='arrow-back' />
-              </Button>
-            </Left>
-            <Body>
-              <Title>Detail Doa</Title>
-            </Body>
-            <Right>
-              <Button transparent>
-              <Icon ref={this.setMenuRef}
-                name='more'
-                onPress={this.showMenu}
-              />
-              
-              </Button>
-            </Right>
-          </Header>
-          <Menu>
-                <MenuItem onPress={this.hideMenu}>Menu item 1</MenuItem>
-                <MenuItem onPress={this.hideMenu}>Menu item 2</MenuItem>
-                <MenuItem onPress={this.hideMenu} disabled>
-                  Menu item 3
-                </MenuItem>
-                <MenuDivider />
-                <MenuItem onPress={this.hideMenu}>Menu item 4</MenuItem>
-              </Menu>
           <ScrollView style={{flex:2, margin:7}}>
             <Card style={styles.card}>
               <CardItem header>
@@ -69,7 +36,7 @@ export default class DoaScreen extends React.Component {
                   <Text style={styles.arab}>{DataDoa[index].arab}</Text>
                   <Text style={styles.arablatin}>{DataDoa[index].arablatin}</Text>
                   <Text style={styles.terjemah}>{DataDoa[index].terjemah}</Text>
-                  <Text></Text>
+                  <TouchableOpacity style={styles.copy} onPress={() => this.copy()} ><Text>Copy Do'a</Text></TouchableOpacity>
                 </Body>
               </CardItem>
               <CardItem footer>
@@ -122,5 +89,10 @@ export default class DoaScreen extends React.Component {
     fontFamily: 'SourceSans',
     fontStyle:'italic',
     textAlign: 'center',
+  },
+  copy: {
+    fontFamily: 'SourceSansPro',
+    fontSize: 17,
+    textAlign:'center',
   }
 })

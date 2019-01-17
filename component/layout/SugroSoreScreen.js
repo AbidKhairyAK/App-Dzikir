@@ -12,12 +12,6 @@ export default class SugroSoreScreen extends React.Component {
       backgroundColor: '#00dfbe'
     },
     headerTintColor: '#FFFFFF',
-    headerRight: (
-      <Icon 
-        name="md-more"
-        style={{ paddingRight: 16, color: 'white' }}
-      />
-    ),
   };
 
   

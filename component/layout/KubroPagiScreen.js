@@ -11,12 +11,6 @@ export default class KubroSoreScreen extends React.Component {
       backgroundColor: '#00dfbe'
     },
     headerTintColor: '#FFFFFF',
-    headerRight: (
-      <Icon   
-        name="md-more"
-        style={{ paddingRight: 16, color: 'white' }}
-      />
-    ),
   };
   
     render() {
