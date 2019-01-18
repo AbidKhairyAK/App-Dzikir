@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
 
-import { StyleSheet, TouchableOpacity, Dimensions, Clipboard } from 'react-native';
+import { StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { View, Text, List, ListItem } from 'native-base';
 
-const OptionMenu = (props) => {
+const SettingMenu = (props) => {
   const { hide, navigation } = props;
   
   if (hide) {
     return null;
   }
 
-  const salinAll = async () => {
-    await Clipboard.setString(navigation.getParam('doaAll'));
-    navigation.setParams({ hideOption: true });
-    alert('Tersalin Ke Clipboard!');
-  };
-
   return (
     <View style={styles.float}>
       <List>
         <ListItem style={styles.textFloat}>
-          <TouchableOpacity style={styles.button} onPress={salin}>
-            <Text style={styles.text}>Salin Doa</Text>
+          <TouchableOpacity style={styles.button} onPress={() => 
+            {
+              navigation.setParams({
+                hideSetting: true,
+              });
+              navigation.navigate('About');
+            }
+          }>
+            <Text style={styles.text}>About</Text>
           </TouchableOpacity>
         </ListItem>
       </List>
@@ -29,15 +30,14 @@ const OptionMenu = (props) => {
   );
 }
 
-
 const styles = StyleSheet.create({
   float: {
     position: 'absolute',
     backgroundColor: '#fff',
     elevation: 2,
     top: -25,
-    right: 15,
-    width: 150,
+    left: 15,
+    width: 100,
   },
   textFloat: {
     marginLeft: 0,
@@ -58,4 +58,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default OptionMenu;
+export default SettingMenu;

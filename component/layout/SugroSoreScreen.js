@@ -8,10 +8,18 @@ import DzikirSoreSugro from '../../data/DzikirSoreSugro';
 export default class SugroSoreScreen extends React.Component {
   static navigationOptions = {
     headerTitle: 'Dzikir Sore Praktis',
-    headerStyle: {
-      backgroundColor: '#00dfbe'
-    },
-    headerTintColor: '#FFFFFF',
+      headerTitleStyle: {
+        fontFamily: 'SourceSansPro',
+        fontWeight: 'bold',
+        fontSize: 20,
+        marginHorizontal: 0,
+        flex: 1,
+        letterSpacing: 2,
+      },
+      headerStyle: {
+        backgroundColor: '#00dfbe'
+      },
+      headerTintColor: '#FFFFFF',
   };
 
   

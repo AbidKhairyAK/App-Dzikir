@@ -8,10 +8,18 @@ import DzikirPagiSugro from '../../data/DzikirPagiSugro';
 export default class SugroPagiScreen extends React.Component {
   static navigationOptions = {
     headerTitle: 'Dzikir Pagi Praktis',
-    headerStyle: {
-      backgroundColor: '#00dfbe'
-    },
-    headerTintColor: '#FFFFFF',
+      headerTitleStyle: {
+        fontFamily: 'SourceSansPro',
+        fontWeight: 'bold',
+        fontSize: 20,
+        marginHorizontal: 0,
+        flex: 1,
+        letterSpacing: 2,
+      },
+      headerStyle: {
+        backgroundColor: '#00dfbe'
+      },
+      headerTintColor: '#FFFFFF',
   };
 
   
@@ -96,5 +104,6 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor:'#f3f2f3',
+    shadowOpacity:1.0
   }
 })

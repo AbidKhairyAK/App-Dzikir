@@ -1,6 +1,6 @@
 import React from 'react';
 import {Icon} from 'native-base';
-import { View,TouchableHighlight,Image, Text } from 'react-native';
+import { View,TouchableOpacity,Image, Text } from 'react-native';
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 
@@ -18,7 +18,7 @@ export default class SoreScreen extends React.Component {
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:'#ecf2f5' }}>
-        <TouchableHighlight 
+        <TouchableOpacity 
           onPress={() => {
             this.props.navigation.navigate('Sugrosore', {
               itemId: 86,
@@ -31,8 +31,8 @@ export default class SoreScreen extends React.Component {
             source={require('../images/praktis.png')}
           />
           </View>
-        </TouchableHighlight>
-        <TouchableHighlight 
+        </TouchableOpacity>
+        <TouchableOpacity 
           onPress={() => {
             this.props.navigation.navigate('Kubrosore', {
               itemId: 86,
@@ -45,7 +45,7 @@ export default class SoreScreen extends React.Component {
             source={require('../images/lengkap.png')}
           />
           </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
       </View>
     );
   }

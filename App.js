@@ -1,6 +1,6 @@
 import React from 'react';
 import {Icon} from 'native-base';
-import { View,TouchableHighlight,Image } from 'react-native';
+import { View,TouchableOpacity,Image,StyleSheet } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import PagiScreen from './component/layout/PagiScreen';
 import SoreScreen from './component/layout/SoreScreen';
@@ -10,26 +10,49 @@ import SugroSoreScreen from './component/layout/SugroSoreScreen';
 import KubroPagiScreen from './component/layout/KubroPagiScreen';
 import KubroSoreScreen from './component/layout/KubroSoreScreen';
 import DetailDoa from './component/layout/DetailDoa';
+import SettingMenu from './component/fitur/SettingMenu';
 
 class HomeScreen extends React.Component {
-  static navigationOptions = {
-    headerLeft: (
-      <Icon 
-        name="menu"
-        style={{ paddingLeft: 16, color: 'white' }}
-      />
-    ),
-    headerTitle: 'Dzikir Pagi & Petang',
-    headerStyle: {
-      backgroundColor: '#00dfbe'
-    },
-    headerTintColor: '#FFFFFF',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-      justifyContent: 'space-between',
-      alignSelf: 'center',
-      flex: 1,
-      flexGrow: 1
+
+  ButtonHandler(id){
+    this.props.navigation.setParams({
+      hideSetting: true,
+      isOpen: this.props.navigation.getParam('isOpen', false) == id ? false : id,
+    });
+    this.scroller.scrollTo({x: 0, y: (101.7 * id) - 101.7});
+  }
+
+
+  static navigationOptions =  ({navigation}) => {
+    settingButtonHandler = () => {
+      hideSetting = navigation.getParam('hideSetting', true);
+      navigation.setParams({hideSetting: !hideSetting});
+    }
+
+     settingButton = (
+      <TouchableOpacity 
+        style={styles.headerButton}
+        onPress={settingButtonHandler}
+      >
+        <Icon name='menu' style={styles.headerIcon}/>
+      </TouchableOpacity>
+    );
+
+
+    return{
+      headerLeft: navigation.getParam('headerLeft', settingButton),
+      headerTitle: 'Dzikir Pagi & Petang',
+      headerStyle: {
+        backgroundColor: '#00dfbe'
+      },
+      headerTintColor: '#FFFFFF',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+        justifyContent: 'space-between',
+        alignSelf: 'center',
+        flex: 1,
+        flexGrow: 1
+      }
     }
   };
 
@@ -38,7 +61,7 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:'#ecf2f5' }}>
-        <TouchableHighlight 
+        <TouchableOpacity 
           onPress={() => {
             this.props.navigation.navigate('Pagi', {
               itemId: 86,
@@ -51,8 +74,8 @@ class HomeScreen extends React.Component {
             source={require('./component/images/pagi.png')}
           />
           </View>
-        </TouchableHighlight>
-        <TouchableHighlight 
+        </TouchableOpacity>
+        <TouchableOpacity 
           onPress={() => {
             this.props.navigation.navigate('Sore', {
               itemId: 86,
@@ -65,8 +88,8 @@ class HomeScreen extends React.Component {
             source={require('./component/images/sore.png')}
           />
           </View>
-        </TouchableHighlight>
-        <TouchableHighlight 
+        </TouchableOpacity>
+        <TouchableOpacity 
           onPress={() => {
             this.props.navigation.navigate('Doa', {
               itemId: 86,
@@ -79,7 +102,7 @@ class HomeScreen extends React.Component {
             source={require('./component/images/doa.png')}
           />
           </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -109,3 +132,13 @@ export default class App extends React.Component {
     return <AppContainer />;
   }
 }
+
+const styles = StyleSheet.create({
+  headerButton: {
+    padding: 13,
+  },
+  headerIcon: {
+    color: '#2C3445',
+    fontSize: 25,
+  },
+});

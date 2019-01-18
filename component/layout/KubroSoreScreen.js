@@ -7,10 +7,18 @@ import DzikirSoreKubro from '../../data/DzikirSoreKubro';
 export default class KubroSoreScreen extends React.Component {
   static navigationOptions = {
     headerTitle: 'Dzikir Petang Lengkap',
-    headerStyle: {
-      backgroundColor: '#00dfbe'
-    },
-    headerTintColor: '#FFFFFF',
+      headerTitleStyle: {
+        fontFamily: 'SourceSansPro',
+        fontWeight: 'bold',
+        fontSize: 20,
+        marginHorizontal: 0,
+        flex: 1,
+        letterSpacing: 2,
+      },
+      headerStyle: {
+        backgroundColor: '#00dfbe'
+      },
+      headerTintColor: '#FFFFFF',
   };
   
     render() {

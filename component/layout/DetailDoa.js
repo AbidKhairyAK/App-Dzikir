@@ -7,6 +7,15 @@ import DataDoa from '../../data/DataDoa';
 export default class DetailDoa extends React.Component {
     static navigationOptions = {
       headerTitle: 'Detail Doa',
+      headerTitleStyle: {
+        fontFamily: 'SourceSansPro',
+        fontWeight: 'bold',
+        fontStyle: 'italic',
+        fontSize: 20,
+        marginHorizontal: 0,
+        flex: 1,
+        letterSpacing: 2,
+      },
       headerStyle: {
         backgroundColor: '#00dfbe'
       },
@@ -16,10 +25,10 @@ export default class DetailDoa extends React.Component {
     id = this.props.navigation.getParam('itemId');
     index = parseInt(this.id) - 1;
     data = DataDoa[this.index];
-    text = this.data.judul +'\n \n'+ this.data.arab +'\n \n'+ this.data.terjemah;
-
+    text = this.data.judul +'\n \n'+ this.data.arab +'\n \n'+ this.data.terjemah +'\n  \n' + this.data.sumber;
     copy() {
       Clipboard.setString(this.text);
+      alert('Tersalin Ke Clipboard!');
     }
   
     render() {
@@ -36,7 +45,9 @@ export default class DetailDoa extends React.Component {
                   <Text style={styles.arab}>{DataDoa[index].arab}</Text>
                   <Text style={styles.arablatin}>{DataDoa[index].arablatin}</Text>
                   <Text style={styles.terjemah}>{DataDoa[index].terjemah}</Text>
-                  <TouchableOpacity style={styles.copy} onPress={() => this.copy()} ><Text>Copy Do'a</Text></TouchableOpacity>
+                  <TouchableOpacity style={styles.copy} onPress={() => this.copy()} >
+                    <Text style={styles.textCopy}>Copy Do'a  <Icon name='share' style={styles.Icon}/></Text>
+                  </TouchableOpacity>
                 </Body>
               </CardItem>
               <CardItem footer>
@@ -50,6 +61,10 @@ export default class DetailDoa extends React.Component {
   }
 
   const styles = StyleSheet.create({
+  Icon: {
+    fontSize:15,
+    color:'#fff',
+  },
   header: {
     backgroundColor:'#00dfbe',
   },
@@ -94,5 +109,14 @@ export default class DetailDoa extends React.Component {
     fontFamily: 'SourceSansPro',
     fontSize: 17,
     textAlign:'center',
+    // backgroundColor:'#00dfbe',
+    backgroundColor:'#999',
+    padding:5,
+    justifyContent:'center',
+    marginTop:15,
+    borderRadius: 10,
+  },
+  textCopy: {
+    color:'#ffffff',
   }
 })

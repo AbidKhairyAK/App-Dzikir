@@ -52,14 +52,6 @@ export default class DoaScreen extends React.Component {
 
 
   const styles = StyleSheet.create({
-    button: {
-      marginTop:10,
-      marginLeft:10,
-      marginRight:10,
-      backgroundColor: '#e5e5e7',
-      padding:15,
-      borderRadius:10
-    },
     listJudul: {
       fontFamily: 'SourceSansPro',
       fontSize: 17,
