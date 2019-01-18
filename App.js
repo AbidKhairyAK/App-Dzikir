@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {Icon} from 'native-base';
-import { View,TouchableOpacity,Image,StyleSheet } from 'react-native';
+import {Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
+import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
+import { View,TouchableOpacity,Image,StyleSheet, Text } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
+import SplashScreen from 'react-native-splash-screen';
 import PagiScreen from './component/layout/PagiScreen';
 import SoreScreen from './component/layout/SoreScreen';
 import DoaScreen from './component/layout/DoaScreen';
@@ -10,59 +12,57 @@ import SugroSoreScreen from './component/layout/SugroSoreScreen';
 import KubroPagiScreen from './component/layout/KubroPagiScreen';
 import KubroSoreScreen from './component/layout/KubroSoreScreen';
 import DetailDoa from './component/layout/DetailDoa';
-import SettingMenu from './component/fitur/SettingMenu';
 import About from './component/layout/About';
 
 
 class HomeScreen extends Component {
 
-  ButtonHandler(id){
-    this.props.navigation.setParams({
-      hideSetting: true,
-      isOpen: this.props.navigation.getParam('isOpen', false) == id ? false : id,
-    });
-    this.scroller.scrollTo({x: 0, y: (101.7 * id) - 101.7});
-  }
+  static navigationOptions = {
+    header:null
+  };
 
-
-  static navigationOptions =  ({navigation}) => {
-    settingButtonHandler = () => {
-      hideSetting = navigation.getParam('hideSetting', true);
-      navigation.setParams({hideSetting: !hideSetting});
-    }
-
-    settingButton = (
-      <TouchableOpacity 
-        style={styles.headerButton}
-        onPress={settingButtonHandler}
-      >
-        <Icon name='menu' style={styles.headerIcon}/>
-      </TouchableOpacity>
-    );
-
-    return {
-      headerLeft: navigation.getParam('headerLeft', settingButton),
-      headerTitle: 'Dzikir Pagi & Petang',
-      headerStyle: {
-        backgroundColor: '#00dfbe'
-      },
-      headerTintColor: '#FFFFFF',
-      headerTitleStyle: {
-        fontFamily: 'SourceSansPro',
-        fontWeight: 'bold',
-        fontSize: 20,
-        marginHorizontal: 0,
-        flex: 1,
-        letterSpacing: 2,
-      },
-    }
+  _menu = null;
+ 
+  setMenuRef = ref => {
+    this._menu = ref;
+  };
+ 
+  showMenu = () => {
+    this._menu.show();
   };
 
 // warna dasar - 162e40
   
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:'#ecf2f5' }}>
+      <View style={{flex: 1,backgroundColor:'#ecf2f5' }}>
+        <Header style={{backgroundColor:'#00dfbe'}}>
+          <Left>
+            <Button transparent>
+            <Menu
+              style={styles.menuSetting}
+              ref={this.setMenuRef}
+              button=
+              {
+                <Text onPress={this.showMenu}>
+                  <Icon name='menu' />
+                </Text>
+              }
+            >
+              <MenuItem 
+                onPress={() => {
+                  this.props.navigation.navigate('About');
+                }}
+              >About</MenuItem>
+            </Menu>
+              
+            </Button>
+          </Left>
+          <Body>
+            <Title style={styles.textHeader}>Dzikir Pagi & Petang</Title>
+          </Body>
+        </Header>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:'#ecf2f5' }}>
         <TouchableOpacity 
           onPress={() => {
             this.props.navigation.navigate('Pagi', {
@@ -106,6 +106,7 @@ class HomeScreen extends Component {
           </View>
         </TouchableOpacity>
       </View>
+      </View>
     );
   }
 }
@@ -132,17 +133,26 @@ const RootStack = createStackNavigator(
 const AppContainer = createAppContainer(RootStack);
 
 export default class App extends React.Component {
+  componentDidMount() {
+    SplashScreen.hide()
+  }
+
   render() {
     return <AppContainer />;
   }
 }
 
 const styles = StyleSheet.create({
-  headerButton: {
-    padding: 13,
+  menuSetting: {
+    marginTop: 23,
+    borderRadius:0
   },
-  headerIcon: {
-    color: '#ffffff',
-    fontSize: 25,
-  },
+  textHeader:{
+    fontFamily: 'SourceSansPro',
+    fontWeight: 'bold',
+    fontSize: 20,
+    marginHorizontal: 0,
+    letterSpacing: 2,
+    marginLeft:-40
+  }
 });
