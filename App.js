@@ -12,6 +12,7 @@ import KubroSoreScreen from './component/layout/KubroSoreScreen';
 import DetailDoa from './component/layout/DetailDoa';
 import SettingMenu from './component/fitur/SettingMenu';
 
+
 class HomeScreen extends React.Component {
 
   ButtonHandler(id){
@@ -47,12 +48,13 @@ class HomeScreen extends React.Component {
       },
       headerTintColor: '#FFFFFF',
       headerTitleStyle: {
+        fontFamily: 'SourceSansPro',
         fontWeight: 'bold',
-        justifyContent: 'space-between',
-        alignSelf: 'center',
+        fontSize: 20,
+        marginHorizontal: 0,
         flex: 1,
-        flexGrow: 1
-      }
+        letterSpacing: 2,
+      },
     }
   };
 
@@ -108,6 +110,7 @@ class HomeScreen extends React.Component {
   }
 }
 
+
 const RootStack = createStackNavigator(
   {
     Home: HomeScreen,
@@ -138,7 +141,7 @@ const styles = StyleSheet.create({
     padding: 13,
   },
   headerIcon: {
-    color: '#2C3445',
+    color: '#ffffff',
     fontSize: 25,
   },
 });

@@ -10,6 +10,14 @@ export default class DoaScreen extends React.Component {
     headerStyle: {
       backgroundColor: '#00dfbe'
     },
+    headerTitleStyle: {
+        fontFamily: 'SourceSansPro',
+        fontWeight: 'bold',
+        fontSize: 20,
+        marginHorizontal: 0,
+        flex: 1,
+        letterSpacing: 2,
+      },
     headerTintColor: '#FFFFFF',
     headerRight: (
       <Icon 
@@ -33,7 +41,7 @@ export default class DoaScreen extends React.Component {
                    })}
                 >
                   <Left>
-                    <Text style={{fontSize:35}}>{data.id}</Text>
+                    <Text style={{fontSize:35, color:'#666666'}}>{data.id}</Text>
                   </Left>
                   <Body>
                     <Text style={styles.listjudul}>{data.judul}</Text>
@@ -57,6 +65,6 @@ export default class DoaScreen extends React.Component {
       fontSize: 17,
       fontWeight: 'bold',
       flex: 1,
-      color: '#333333',
+      color: '#666666',
     }
   })

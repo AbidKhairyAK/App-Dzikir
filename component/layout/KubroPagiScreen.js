@@ -1,6 +1,6 @@
 import React from 'react';
 import {Icon,Content, Card, CardItem,Body} from 'native-base';
-import { View,TouchableHighlight,Image, Text,StyleSheet } from 'react-native';
+import { View,TouchableHighlight,Image, Text,StyleSheet,ScrollView } from 'react-native';
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
 import DzikirPagiKubro from '../../data/DzikirPagiKubro';
 
@@ -26,37 +26,19 @@ export default class KubroSoreScreen extends React.Component {
   
       return (
         <View style={{flex:1, backgroundColor:'#ecf2f5'}}>
-          <View style={{flex:2, margin:10}}>
-            <Content>
-            <Card style={styles.card}>
-              <CardItem>
-                <Text style={styles.judul}>Dzikir Pagi Lengkap</Text>
-              </CardItem>
-            </Card>
-            {DzikirPagiKubro.map((kubro) => 
-               <Card>
-                <CardItem>
-                  <Text style={styles.headerTitle}>
-                    {kubro.headerTitle}
-                  </Text>
-                </CardItem>
-                <CardItem>
-                  <Body>
-                    <Text style={styles.arab}>
-                      {kubro.arab}
-                    </Text>
-                    <Text style={styles.arablatin}>
-                      {kubro.arablatin}
-                    </Text>
-                    <Text style={styles.terjemah}>
-                      {kubro.terjemah}
-                    </Text>
-                  </Body>
-                </CardItem>
-              </Card>
+          <ScrollView style={{flex:2, margin:15}}>
+            <View style={{backgroundColor:'#ffffff'}}>
+              <Text style={styles.textJudul}>Dzikir Pagi Lengkap</Text>
+            </View>
+            {DzikirPagiKubro.map((kubro) =>
+              <View style={{backgroundColor:'#ffffff', marginTop:10, padding:12}}>
+                <Text style={styles.textJudul}>{kubro.headerTitle}</Text>
+                <Text style={styles.textArab}>{kubro.arab}</Text>
+                <Text style={styles.textArabLatin}>{kubro.arablatin}</Text>
+                <Text style={styles.textTerjemah}>{kubro.terjemah}k</Text>
+              </View>
             )}
-            </Content>
-          </View>
+          </ScrollView>
         </View>
       );
     }
@@ -64,43 +46,34 @@ export default class KubroSoreScreen extends React.Component {
 
 
   const styles = StyleSheet.create({
-  judul: {
-    fontFamily: 'SourceSansPro',
-    fontSize: 17,
-    fontWeight: 'bold',
-    flex: 1,
-    textAlign: 'center',
-    color: '#162e40',
-  },
-  headerTitle: {
-    fontFamily: 'SourceSansPro',
-    fontSize: 17,
-    fontWeight: 'bold',
-    flex: 1,
-    textAlign: 'center',
-    color: '#333333',
-  },
-  arab: {
-    fontSize:30,
-    fontFamily: 'lotus-linotype-light',
-    color:'#333333',
-  },
-  arablatin: {
-    lineHeight:20,
-    marginTop: 10,
-    fontStyle:'italic',
-    color:'#666666',
-    fontFamily: 'SourceSansPro',
-    fontSize: 13,
-  },
-  terjemah: {
-    lineHeight:20,
-    fontFamily: 'SourceSans',
-    marginTop:10,
-    fontSize:13,
-    color:'#333333',
-  },
-  card: {
-    backgroundColor:'#f3f2f3',
-  }
-})
+     textJudul: {
+        padding:7,
+        fontSize:17,
+        fontFamily: 'SourceSansPro',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        color:'#666666'
+     },
+     textArab: {
+        fontSize:30,
+        fontFamily: 'lotus-linotype-light',
+        color:'#333333',
+        marginTop:5
+     },
+     textArabLatin: {
+        lineHeight:20,
+        marginTop: 10,
+        fontStyle:'italic',
+        color:'#666666',
+        fontFamily: 'SourceSansPro',
+        fontSize: 13,
+     },
+     textTerjemah: {
+        lineHeight:20,
+        fontFamily: 'SourceSans',
+        marginTop:10,
+        fontSize:15,
+        color:'#333333',
+        paddingBottom: 10
+     },
+    })

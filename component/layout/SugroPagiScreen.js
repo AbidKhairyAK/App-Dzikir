@@ -1,6 +1,6 @@
 import React from 'react';
 import {Icon,Content, Card, CardItem,Body,Text} from 'native-base';
-import { View,TouchableHighlight,Image,StyleSheet } from 'react-native';
+import { View,TouchableHighlight,Image,StyleSheet,ScrollView } from 'react-native';
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
 import DzikirPagiSugro from '../../data/DzikirPagiSugro';
 
@@ -28,37 +28,19 @@ export default class SugroPagiScreen extends React.Component {
   
       return (
         <View style={{flex:1, backgroundColor:'#ecf2f5'}}>
-          <View style={{flex:2, margin:10}}>
-            <Content>
-            <Card style={styles.card}>
-              <CardItem>
-                <Text style={styles.judul}>Dzikir Pagi Praktis</Text>
-              </CardItem>
-            </Card>
-            {DzikirPagiSugro.map((sugro) => 
-               <Card>
-                <CardItem>
-                  <Text style={styles.headerTitle}>
-                    {sugro.headerTitle}
-                  </Text>
-                </CardItem>
-                <CardItem>
-                  <Body>
-                    <Text style={styles.arab}>
-                      {sugro.arab}
-                    </Text>
-                    <Text style={styles.arablatin}>
-                      {sugro.arablatin}
-                    </Text>
-                    <Text style={styles.terjemah}>
-                      {sugro.terjemah}
-                    </Text>
-                  </Body>
-                </CardItem>
-              </Card>
+          <ScrollView style={{flex:2, margin:15}}>
+            <View style={{backgroundColor:'#ffffff'}}>
+              <Text style={styles.textJudul}>Dzikir Pagi Praktis</Text>
+            </View>
+            {DzikirPagiSugro.map((sugro) =>
+              <View style={{backgroundColor:'#ffffff', marginTop:10, padding:12}}>
+                <Text style={styles.textJudul}>{sugro.headerTitle}</Text>
+                <Text style={styles.textArab}>{sugro.arab}</Text>
+                <Text style={styles.textArabLatin}>{sugro.arablatin}</Text>
+                <Text style={styles.textTerjemah}>{sugro.terjemah}k</Text>
+              </View>
             )}
-            </Content>
-          </View>
+          </ScrollView>
         </View>
       );
     }
@@ -66,44 +48,34 @@ export default class SugroPagiScreen extends React.Component {
 
 
 const styles = StyleSheet.create({
-  judul: {
+ textJudul: {
+    padding:7,
+    fontSize:17,
     fontFamily: 'SourceSansPro',
-    fontSize: 17,
     fontWeight: 'bold',
-    flex: 1,
     textAlign: 'center',
-    color: '#162e40',
-  },
-  headerTitle: {
-    fontFamily: 'SourceSansPro',
-    fontSize: 17,
-    fontWeight: 'bold',
-    flex: 1,
-    textAlign: 'center',
-    color: '#333333',
-  },
-  arab: {
+    color:'#666666'
+ },
+ textArab: {
     fontSize:30,
     fontFamily: 'lotus-linotype-light',
     color:'#333333',
-  },
-  arablatin: {
+    marginTop:5
+ },
+ textArabLatin: {
     lineHeight:20,
     marginTop: 10,
     fontStyle:'italic',
     color:'#666666',
     fontFamily: 'SourceSansPro',
     fontSize: 13,
-  },
-  terjemah: {
+ },
+ textTerjemah: {
     lineHeight:20,
     fontFamily: 'SourceSans',
     marginTop:10,
-    fontSize:13,
+    fontSize:15,
     color:'#333333',
-  },
-  card: {
-    backgroundColor:'#f3f2f3',
-    shadowOpacity:1.0
-  }
+    paddingBottom: 10
+ },
 })

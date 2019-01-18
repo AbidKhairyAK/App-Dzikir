@@ -10,6 +10,14 @@ export default class PagiScreen extends React.Component {
     headerStyle: {
       backgroundColor: '#00dfbe'
     },
+    headerTitleStyle: {
+        fontFamily: 'SourceSansPro',
+        fontWeight: 'bold',
+        fontSize: 20,
+        marginHorizontal: 0,
+        flex: 1,
+        letterSpacing: 2,
+      },
     headerTintColor: '#FFFFFF',
   };
 
