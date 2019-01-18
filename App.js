@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Icon} from 'native-base';
 import { View,TouchableOpacity,Image,StyleSheet } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
@@ -11,9 +11,10 @@ import KubroPagiScreen from './component/layout/KubroPagiScreen';
 import KubroSoreScreen from './component/layout/KubroSoreScreen';
 import DetailDoa from './component/layout/DetailDoa';
 import SettingMenu from './component/fitur/SettingMenu';
+import About from './component/layout/About';
 
 
-class HomeScreen extends React.Component {
+class HomeScreen extends Component {
 
   ButtonHandler(id){
     this.props.navigation.setParams({
@@ -30,7 +31,7 @@ class HomeScreen extends React.Component {
       navigation.setParams({hideSetting: !hideSetting});
     }
 
-     settingButton = (
+    settingButton = (
       <TouchableOpacity 
         style={styles.headerButton}
         onPress={settingButtonHandler}
@@ -39,8 +40,7 @@ class HomeScreen extends React.Component {
       </TouchableOpacity>
     );
 
-
-    return{
+    return {
       headerLeft: navigation.getParam('headerLeft', settingButton),
       headerTitle: 'Dzikir Pagi & Petang',
       headerStyle: {
@@ -122,10 +122,11 @@ const RootStack = createStackNavigator(
     Kubropagi: KubroPagiScreen,
     Kubrosore: KubroSoreScreen,
     Detail: DetailDoa,
+    About: About,
   },
   {
     initialRouteName: 'Home',
-  }
+  },
 );
 
 const AppContainer = createAppContainer(RootStack);
