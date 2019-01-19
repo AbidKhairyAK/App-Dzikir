@@ -3,6 +3,7 @@ import {Container, Header, Left, Body, Right, Button, Icon, Title } from 'native
 import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
 import { View,TouchableOpacity,Image,StyleSheet, Text } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
+import SplashScreen from 'react-native-splash-screen';
 import PagiScreen from './component/layout/PagiScreen';
 import SoreScreen from './component/layout/SoreScreen';
 import DoaScreen from './component/layout/DoaScreen';
@@ -132,6 +133,11 @@ const RootStack = createStackNavigator(
 const AppContainer = createAppContainer(RootStack);
 
 export default class App extends React.Component {
+
+   componentDidMount() {
+      SplashScreen.hide();
+    }
+
   render() {
     return <AppContainer />;
   }
