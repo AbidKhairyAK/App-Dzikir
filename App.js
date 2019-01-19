@@ -3,7 +3,6 @@ import {Container, Header, Left, Body, Right, Button, Icon, Title } from 'native
 import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
 import { View,TouchableOpacity,Image,StyleSheet, Text } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import SplashScreen from 'react-native-splash-screen';
 import PagiScreen from './component/layout/PagiScreen';
 import SoreScreen from './component/layout/SoreScreen';
 import DoaScreen from './component/layout/DoaScreen';
@@ -45,7 +44,7 @@ class HomeScreen extends Component {
               button=
               {
                 <Text onPress={this.showMenu}>
-                  <Icon name='menu' />
+                  <Icon style={{fontWeight:'bold', fontSize:30}} name='menu' />
                 </Text>
               }
             >
@@ -133,10 +132,6 @@ const RootStack = createStackNavigator(
 const AppContainer = createAppContainer(RootStack);
 
 export default class App extends React.Component {
-  componentDidMount() {
-    SplashScreen.hide()
-  }
-
   render() {
     return <AppContainer />;
   }
@@ -144,7 +139,7 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   menuSetting: {
-    marginTop: 23,
+    marginTop: 27,
     borderRadius:0
   },
   textHeader:{

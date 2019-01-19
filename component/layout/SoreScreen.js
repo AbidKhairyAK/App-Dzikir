@@ -1,12 +1,14 @@
 import React from 'react';
-import {Icon} from 'native-base';
-import { View,TouchableOpacity,Image, Text } from 'react-native';
+import { Container, Header, Tab, Tabs, TabHeading, Icon } from 'native-base';
+import { View,TouchableOpacity,Image, Text,StyleSheet } from 'react-native';
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
+import Tab1 from './SugroSoreScreen';
+import Tab2 from './KubroSoreScreen';
 
 
 export default class SoreScreen extends React.Component {
   static navigationOptions = {
-    headerTitle: 'Dzikir Pagi & Petang',
+    headerTitle: 'Dzikir Sore',
     headerStyle: {
       backgroundColor: '#00dfbe'
     },
@@ -26,35 +28,24 @@ export default class SoreScreen extends React.Component {
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:'#ecf2f5' }}>
-        <TouchableOpacity 
-          onPress={() => {
-            this.props.navigation.navigate('Sugrosore', {
-              itemId: 86,
-            });
-          }}
-          underlayColor="white">
-          <View>
-          <Image
-            style={{width: 160, height: 50, margin:15}}
-            source={require('../images/praktis.png')}
-          />
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity 
-          onPress={() => {
-            this.props.navigation.navigate('Kubrosore', {
-              itemId: 86,
-            });
-          }}
-          underlayColor="white">
-          <View>
-          <Image
-            style={{width: 160, height: 50}}
-            source={require('../images/lengkap.png')}
-          />
-          </View>
-        </TouchableOpacity>
+         <Tabs>
+          <Tab heading={ <TabHeading style={{backgroundColor:'#ecf2f5'}}><Text style={styles.textTab}>Peraktis</Text></TabHeading>}>
+            <Tab1 />
+          </Tab>
+          <Tab heading={ <TabHeading style={{backgroundColor:'#ecf2f5'}}><Text style={styles.textTab}>Lengkap</Text></TabHeading>}>
+            <Tab2 />
+          </Tab>
+        </Tabs>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  textTab:{
+    fontSize:20,
+    color:'#666',
+    fontWeight:'bold',
+    fontFamily: 'SourceSansPro',
+  }
+});

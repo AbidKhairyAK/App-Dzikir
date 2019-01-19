@@ -20,11 +20,8 @@ export default class DoaScreen extends React.Component {
       },
     headerTintColor: '#FFFFFF',
     headerRight: (
-      <Icon 
-        name="md-more"
-        style={{ paddingRight: 16, color: 'white' }}
-      />
-    ),
+        null
+      ),
   };
   
     render() {
@@ -41,13 +38,14 @@ export default class DoaScreen extends React.Component {
                    })}
                 >
                   <Left>
-                    <Text style={{fontSize:35, color:'#666666'}}>{data.id}</Text>
+                    <Text style={{fontSize:27, color:'#333'}}>{data.id}</Text>
                   </Left>
                   <Body>
                     <Text style={styles.listjudul}>{data.judul}</Text>
+                    <Text style={styles.listconten}>Doa Harian - {data.id}</Text>
                   </Body>
                   <Right>
-                      <Icon name="arrow-forward" />
+                      <Icon style={{color:'#333'}} name="arrow-forward" />
                   </Right>
                 </ListItem>
               ))}
@@ -60,11 +58,17 @@ export default class DoaScreen extends React.Component {
 
 
   const styles = StyleSheet.create({
-    listJudul: {
+    listconten: {
+      fontSize:11,
+      letterSpacing: 1,
+      color:'#666'
+    },
+    listjudul: {
       fontFamily: 'SourceSansPro',
       fontSize: 17,
       fontWeight: 'bold',
       flex: 1,
-      color: '#666666',
+      color: '#333',
+      letterSpacing: 1,
     }
   })

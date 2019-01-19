@@ -24,22 +24,18 @@ class About extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={{flex:1, backgroundColor:'#ecf2f5'}}>
         <ScrollView>
           <View style={styles.wrapper}>
             <Image
               style={styles.logo}
-              source={require('../images/doa.png')}
+              source={require('../images/idpi.png')}
             />
             <Text style={[styles.mainTitle, styles.text]}>Dzikir Pagi & Petang</Text>
             <Text style={[styles.subTitle, styles.text]}>by Pondok Informatika Al-Madinah</Text>
 
             <View style={styles.contact}>
               <Text style={[styles.contactHeader, styles.text]}>Developers</Text>
-              <View style={styles.contactItem}>
-                <Icon name="navigate-next" style={styles.contactIcon}/>
-                <Text style={[styles.contactText, styles.text]}>Irhamullah Yunta S.Kom</Text>
-              </View>
               <View style={styles.contactItem}>
                 <Icon name="navigate-next" style={styles.contactIcon}/>
                 <Text style={[styles.contactText, styles.text]}>Bilal</Text>
@@ -85,13 +81,12 @@ class About extends Component {
 
 const styles = StyleSheet.create({
   wrapper: {
-    width: Dimensions.get('window').width - 30,
+    width: Dimensions.get('window').width - 20,
     backgroundColor: '#fff',
     alignSelf: 'center',
     paddingVertical: 40,
     paddingHorizontal: 15,
-    margin: 15,
-    marginTop: 0,
+    margin: 20,
   },
   logo: {
     width: 130,
