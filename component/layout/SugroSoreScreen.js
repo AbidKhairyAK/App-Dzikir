@@ -32,8 +32,8 @@ export default class SugroSoreScreen extends React.Component {
             <View style={{backgroundColor:'#ffffff'}}>
               <Text style={styles.textJudul}>Dzikir Pagi Praktis</Text>
             </View>
-            {DzikirSoreSugro.map((sugro) =>
-              <View style={{backgroundColor:'#ffffff', marginTop:10, padding:12}}>
+            {DzikirSoreSugro.map((sugro, index) =>
+              <View key={index} style={{backgroundColor:'#ffffff', marginTop:10, padding:12}}>
                 <Text style={styles.textJudul}>{sugro.headerTitle}</Text>
                 <Text style={styles.textArab}>{sugro.arab}</Text>
                 <Text style={styles.textArabLatin}>{sugro.arablatin}</Text>

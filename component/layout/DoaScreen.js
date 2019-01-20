@@ -31,8 +31,8 @@ export default class DoaScreen extends React.Component {
         <View style={{flex:1, backgroundColor:'#ffffff'}}>
           <View style={{flex:2, margin:7}}>
             <Content>
-              {ListDoa.map((data) => (
-                <ListItem thumbnail
+              {ListDoa.map((data, index) => (
+                <ListItem key={index} thumbnail
                   onPress={() => this.props.navigation.navigate('Detail', {
                     itemId: data.id,
                    })}

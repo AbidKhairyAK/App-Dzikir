@@ -30,8 +30,8 @@ export default class KubroSoreScreen extends React.Component {
             <View style={{backgroundColor:'#ffffff'}}>
               <Text style={styles.textJudul}>Dzikir Pagi Lengkap</Text>
             </View>
-            {DzikirPagiKubro.map((kubro) =>
-              <View style={{backgroundColor:'#ffffff', marginTop:10, padding:12}}>
+            {DzikirPagiKubro.map((kubro, index) =>
+              <View key={index} style={{backgroundColor:'#ffffff', marginTop:10, padding:12}}>
                 <Text style={styles.textJudul}>{kubro.headerTitle}</Text>
                 <Text style={styles.textArab}>{kubro.arab}</Text>
                 <Text style={styles.textArabLatin}>{kubro.arablatin}</Text>

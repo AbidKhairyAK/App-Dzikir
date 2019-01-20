@@ -29,7 +29,7 @@ class About extends Component {
           <View style={styles.wrapper}>
             <Image
               style={styles.logo}
-              source={require('../images/idpi.png')}
+              source={require('../images/iconabout.png')}
             />
             <Text style={[styles.mainTitle, styles.text]}>Dzikir Pagi & Petang</Text>
             <Text style={[styles.subTitle, styles.text]}>by Pondok Informatika Al-Madinah</Text>
