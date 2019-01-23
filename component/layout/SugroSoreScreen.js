@@ -6,23 +6,6 @@ import DzikirSoreSugro from '../../data/DzikirSoreSugro';
 
 
 export default class SugroSoreScreen extends React.Component {
-  static navigationOptions = {
-    headerTitle: 'Dzikir Sore Praktis',
-      headerTitleStyle: {
-        fontFamily: 'SourceSansPro',
-        fontWeight: 'bold',
-        fontSize: 20,
-        marginHorizontal: 0,
-        flex: 1,
-        letterSpacing: 2,
-      },
-      headerStyle: {
-        backgroundColor: '#00dfbe'
-      },
-      headerTintColor: '#FFFFFF',
-  };
-
-  
     render() {
       const { navigation } = this.props;
   
@@ -36,8 +19,12 @@ export default class SugroSoreScreen extends React.Component {
               <View key={index} style={{backgroundColor:'#ffffff', marginTop:10, padding:12}}>
                 <Text style={styles.textJudul}>{sugro.headerTitle}</Text>
                 <Text style={styles.textArab}>{sugro.arab}</Text>
-                <Text style={styles.textArabLatin}>{sugro.arablatin}</Text>
-                <Text style={styles.textTerjemah}>{sugro.terjemah}k</Text>
+                {
+                  this.props.status ? <Text style={styles.textArabLatin}>{sugro.arablatin}</Text> : null
+                }
+                {
+                  this.props.status ? <Text style={styles.textTerjemah}>{sugro.terjemah}k</Text> : null
+                }
               </View>
             )}
           </ScrollView>

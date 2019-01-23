@@ -1,39 +1,89 @@
 import React from 'react';
-import { Container, Header, Tab, Tabs, TabHeading, Icon } from 'native-base';
+import { Tab, Tabs, TabHeading,Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
 import { View,TouchableOpacity,Image, Text,StyleSheet } from 'react-native';
+import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Tab1 from './SugroSoreScreen';
 import Tab2 from './KubroSoreScreen';
 
 
 export default class SoreScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      status:true,
+    };
+  }
+
   static navigationOptions = {
-    headerTitle: 'Dzikir Sore',
-    headerStyle: {
-      backgroundColor: '#00dfbe'
-    },
-    headerTitleStyle: {
-        fontFamily: 'SourceSansPro',
-        fontWeight: 'bold',
-        fontSize: 20,
-        marginHorizontal: 0,
-        flex: 1,
-        letterSpacing: 2,
-      },
-    headerTintColor: '#FFFFFF',
+    header:null
   };
+
+ _menu = null;
+ 
+  setMenuRef = ref => {
+    this._menu = ref;
+  };
+ 
+  showMenu = () => {
+    this._menu.show();
+  };
+  
+  hideMenu = () => {
+    this._menu.hide();
+  };
+
+
+  _hideText = () => {
+     this.setState({
+        status:!this.state.status,
+      });
+
+     this.hideMenu();
+  }
+
 
   render() {
     const { navigation } = this.props;
 
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:'#ecf2f5' }}>
+      <View style={{ flex: 1,backgroundColor:'#ecf2f5' }}>
+          <Header style={{backgroundColor:'#00dfbe'}}>
+          <Left>
+            <Text>
+              <Icon style={{color:'#fff'}} name='arrow-back'/>
+            </Text>
+          </Left>
+          <Body>
+            <Title style={styles.textHeader}>Dzikir Sore</Title>
+          </Body>
+          <Right>
+            <Button transparent>
+            <Menu
+              style={styles.menuSetting}
+              ref={this.setMenuRef}
+              button=
+              {
+                <TouchableOpacity onPress={this.showMenu}>
+                  <Icon style={{fontWeight:'bold', fontSize:30}} name='more' />
+                </TouchableOpacity>
+              }
+            >
+              <MenuItem
+                onPress={() => this._hideText()}
+              >Hidden Text</MenuItem>
+              <MenuItem>Font Size</MenuItem>
+            </Menu>
+              
+            </Button>
+          </Right>
+        </Header>
          <Tabs>
-          <Tab heading={ <TabHeading style={{backgroundColor:'#ecf2f5'}}><Text style={styles.textTab}>Peraktis</Text></TabHeading>}>
-            <Tab1 />
+          <Tab heading={ <TabHeading style={{backgroundColor:'#ecf2f5'}}><Text style={styles.textTab}>Praktis</Text></TabHeading>}>
+            <Tab1 status={this.state.status} />
           </Tab>
           <Tab heading={ <TabHeading style={{backgroundColor:'#ecf2f5'}}><Text style={styles.textTab}>Lengkap</Text></TabHeading>}>
-            <Tab2 />
+            <Tab2 status={this.state.status}/>
           </Tab>
         </Tabs>
       </View>
@@ -47,5 +97,13 @@ const styles = StyleSheet.create({
     color:'#666',
     fontWeight:'bold',
     fontFamily: 'SourceSansPro',
+  },
+  textHeader:{
+    fontFamily: 'SourceSansPro',
+    fontWeight: 'bold',
+    fontSize: 20,
+    marginHorizontal: 0,
+    letterSpacing: 2,
+    marginLeft:-20
   }
 });

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
 import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
-import { View,TouchableOpacity,Image,StyleSheet, Text } from 'react-native';
+import { View,TouchableOpacity,Image,StyleSheet, Text, Linking } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import SplashScreen from 'react-native-splash-screen';
 import PagiScreen from './component/layout/PagiScreen';
@@ -31,6 +31,16 @@ class HomeScreen extends Component {
     this._menu.show();
   };
 
+  hideMenu = () => {
+    this._menu.hide();
+  };
+
+  // _hideTextMenu = () => {
+  //   this.setState({
+      
+  //   })
+  // }
+
 // warna dasar - 162e40
   
   render() {
@@ -44,9 +54,9 @@ class HomeScreen extends Component {
               ref={this.setMenuRef}
               button=
               {
-                <Text onPress={this.showMenu}>
+                <TouchableOpacity onPress={this.showMenu}>
                   <Icon style={{fontWeight:'bold', fontSize:30}} name='menu' />
-                </Text>
+                </TouchableOpacity>
               }
             >
               <MenuItem 
@@ -54,6 +64,9 @@ class HomeScreen extends Component {
                   this.props.navigation.navigate('About');
                 }}
               >About</MenuItem>
+              <MenuItem 
+                onPress={ ()=> Linking.openURL('http://pondokinformatika.com') }
+              >Kunjungi Kami</MenuItem>
             </Menu>
               
             </Button>
@@ -67,6 +80,7 @@ class HomeScreen extends Component {
           onPress={() => {
             this.props.navigation.navigate('Pagi', {
               itemId: 86,
+              status: true,
             });
           }}
           underlayColor="white">

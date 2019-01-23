@@ -5,22 +5,6 @@ import { View,TouchableHighlight,Image, Text,StyleSheet,ScrollView } from 'react
 import DzikirSoreKubro from '../../data/DzikirSoreKubro';
 
 export default class KubroSoreScreen extends React.Component {
-  static navigationOptions = {
-    headerTitle: 'Dzikir Petang Lengkap',
-      headerTitleStyle: {
-        fontFamily: 'SourceSansPro',
-        fontWeight: 'bold',
-        fontSize: 20,
-        marginHorizontal: 0,
-        flex: 1,
-        letterSpacing: 2,
-      },
-      headerStyle: {
-        backgroundColor: '#00dfbe'
-      },
-      headerTintColor: '#FFFFFF',
-  };
-  
     render() {
       const { navigation } = this.props;
   
@@ -34,8 +18,12 @@ export default class KubroSoreScreen extends React.Component {
               <View key={index} style={{backgroundColor:'#ffffff', marginTop:10, padding:12}}>
                 <Text style={styles.textJudul}>{kubro.headerTitle}</Text>
                 <Text style={styles.textArab}>{kubro.arab}</Text>
-                <Text style={styles.textArabLatin}>{kubro.arablatin}</Text>
-                <Text style={styles.textTerjemah}>{kubro.terjemah}k</Text>
+                 {
+                  this.props.status ? <Text style={styles.textArabLatin}>{kubro.arablatin}</Text> : null
+                }
+                {
+                  this.props.status ? <Text style={styles.textTerjemah}>{kubro.terjemah}k</Text> : null
+                }
               </View>
             )}
           </ScrollView>

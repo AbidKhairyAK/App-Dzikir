@@ -66,10 +66,7 @@ class About extends Component {
                   style={[styles.vendorImage, {height: 25}]}
                   source={require('../images/pondok.png')}
                 />
-                <Image
-                  style={[styles.vendorImage, {height: 30}]}
-                  source={require('../images/wahdah.png')}
-                />
+                
               </View>
             </View>
           </View>

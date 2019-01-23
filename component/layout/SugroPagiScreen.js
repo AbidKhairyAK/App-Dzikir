@@ -1,34 +1,18 @@
 import React from 'react';
-import {Icon,Content, Card, CardItem,Body,Text} from 'native-base';
+import {Icon,Content, Card, CardItem,Body,Text,Button} from 'native-base';
 import { View,TouchableHighlight,Image,StyleSheet,ScrollView } from 'react-native';
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
 import DzikirPagiSugro from '../../data/DzikirPagiSugro';
 
 
 export default class SugroPagiScreen extends React.Component {
-  static navigationOptions = {
-    headerTitle: 'Dzikir Pagi Praktis',
-      headerTitleStyle: {
-        fontFamily: 'SourceSansPro',
-        fontWeight: 'bold',
-        fontSize: 20,
-        marginHorizontal: 0,
-        flex: 1,
-        letterSpacing: 2,
-      },
-      headerStyle: {
-        backgroundColor: '#00dfbe'
-      },
-      headerTintColor: '#FFFFFF',
-  };
-
   
     render() {
       const { navigation } = this.props;
   
       return (
         <View style={{flex:1, backgroundColor:'#ecf2f5'}}>
-          <ScrollView style={{flex:2, margin:15}}>
+          <ScrollView style={{flex:2, margin:15, marginTop:2}}>
             <View style={{backgroundColor:'#ffffff'}}>
               <Text style={styles.textJudul}>Dzikir Pagi Praktis</Text>
             </View>
@@ -36,8 +20,12 @@ export default class SugroPagiScreen extends React.Component {
               <View key={index} style={{backgroundColor:'#ffffff', marginTop:10, padding:12}}>
                 <Text style={styles.textJudul}>{sugro.headerTitle}</Text>
                 <Text style={styles.textArab}>{sugro.arab}</Text>
-                <Text style={styles.textArabLatin}>{sugro.arablatin}</Text>
-                <Text style={styles.textTerjemah}>{sugro.terjemah}k</Text>
+                {
+                  this.props.status ? <Text style={styles.textArabLatin}>{sugro.arablatin}</Text> : null
+                }
+                {
+                  this.props.status ? <Text style={styles.textTerjemah}>{sugro.terjemah}k</Text> : null
+                }
               </View>
             )}
           </ScrollView>
