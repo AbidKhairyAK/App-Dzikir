@@ -4,15 +4,15 @@ import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
 import { View,TouchableOpacity,Image,StyleSheet, Text, Linking } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import SplashScreen from 'react-native-splash-screen';
-import PagiScreen from './component/layout/PagiScreen';
-import SoreScreen from './component/layout/SoreScreen';
-import DoaScreen from './component/layout/DoaScreen';
-import SugroPagiScreen from './component/layout/SugroPagiScreen';
-import SugroSoreScreen from './component/layout/SugroSoreScreen';
-import KubroPagiScreen from './component/layout/KubroPagiScreen';
-import KubroSoreScreen from './component/layout/KubroSoreScreen';
-import DetailDoa from './component/layout/DetailDoa';
-import About from './component/layout/About';
+import PagiScreen from './PagiScreen';
+import SoreScreen from './SoreScreen';
+import DoaScreen from './DoaScreen';
+import SugroPagiScreen from './SugroPagiScreen';
+import SugroSoreScreen from './SugroSoreScreen';
+import KubroPagiScreen from './KubroPagiScreen';
+import KubroSoreScreen from './KubroSoreScreen';
+import DetailDoa from './DetailDoa';
+import About from './About';
 
 
 class HomeScreen extends Component {
@@ -62,13 +62,10 @@ class HomeScreen extends Component {
               <MenuItem 
                 onPress={() => {
                   this.props.navigation.navigate('About');
-                  this.hideMenu();
                 }}
               >About</MenuItem>
               <MenuItem 
-                onPress={ ()=> 
-                  Linking.openURL('http://pondokinformatika.com') 
-                }
+                onPress={ ()=> Linking.openURL('http://pondokinformatika.com') }
               >Kunjungi Kami</MenuItem>
             </Menu>
               
@@ -90,7 +87,7 @@ class HomeScreen extends Component {
           <View>
           <Image
             style={{width: 140, height: 140}}
-            source={require('./component/images/pagi.png')}
+            source={require('../images/pagi.png')}
           />
           </View>
         </TouchableOpacity>
@@ -104,7 +101,7 @@ class HomeScreen extends Component {
           <View>
           <Image
             style={{width: 140, height: 140}}
-            source={require('./component/images/sore.png')}
+            source={require('../images/sore.png')}
           />
           </View>
         </TouchableOpacity>
@@ -118,45 +115,13 @@ class HomeScreen extends Component {
           <View>
           <Image
             style={{width: 140, height: 140}}
-            source={require('./component/images/doa.png')}
+            source={require('../images/doa.png')}
           />
           </View>
         </TouchableOpacity>
       </View>
       </View>
     );
-  }
-}
-
-
-const RootStack = createStackNavigator(
-  {
-    Home: HomeScreen,
-    Pagi: PagiScreen,
-    Sore: SoreScreen,
-    Doa: DoaScreen,
-    Sugropagi: SugroPagiScreen,
-    Sugrosore: SugroSoreScreen,
-    Kubropagi: KubroPagiScreen,
-    Kubrosore: KubroSoreScreen,
-    Detail: DetailDoa,
-    About: About,
-  },
-  {
-    initialRouteName: 'Home',
-  },
-);
-
-const AppContainer = createAppContainer(RootStack);
-
-export default class App extends React.Component {
-
-   componentDidMount() {
-      SplashScreen.hide();
-    }
-
-  render() {
-    return <AppContainer />;
   }
 }
 

@@ -72,6 +72,9 @@ export default class PagiScreen extends React.Component {
               <MenuItem
                 onPress={() => this._hideText()}
               >Hidden Text</MenuItem>
+              <MenuItem
+                onPress={() => this._hideText()}
+              >Show Text</MenuItem>
               <MenuItem>Font Size</MenuItem>
             </Menu>
               
