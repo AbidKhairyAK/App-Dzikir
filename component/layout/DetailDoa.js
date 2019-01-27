@@ -48,14 +48,15 @@ export default class DetailDoa extends React.Component {
     }
 
 render() {
+    const { navigation } = this.props;
     const index = parseInt(this.id) - 1;  
       return (
         <View style={{flex:1, backgroundColor:'#ecf2f5'}}>
           <Header style={{backgroundColor:'#00dfbe'}}>
             <Left>
-              <Text>
-                <Icon style={{color:'#fff'}} name='arrow-back'/>
-              </Text>
+              <TouchableOpacity>
+              <Icon onPress={() => navigation.goBack(null)} style={{color:'#fff'}} name='arrow-back'/>
+            </TouchableOpacity>
             </Left>
             <Body>
               <Title style={styles.textHeader}>Detail Doa</Title>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Tab, Tabs, TabHeading,Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
 import { View,TouchableOpacity,Image, Text,StyleSheet } from 'react-native';
 import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
+import ActionSheet from 'react-native-zhb-actionsheet';
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Tab1 from './SugroSoreScreen';
 import Tab2 from './KubroSoreScreen';
@@ -10,11 +11,13 @@ import Tab2 from './KubroSoreScreen';
 export default class SoreScreen extends React.Component {
   constructor(props) {
     super(props);
+    this.customTitles = [{title: '27'}, {title: '28'}, {title: '29'}, {title: '30'}, {title: '31'}, {title: '32'}, {title: '33'}, {title: '34'}];
     this.state = {
       status:true,
+      titles:this.customTitles,
     };
   }
-
+ 
   static navigationOptions = {
     header:null
   };
@@ -48,11 +51,20 @@ export default class SoreScreen extends React.Component {
 
     return (
       <View style={{ flex: 1,backgroundColor:'#ecf2f5' }}>
+      <ActionSheet
+          ref="picker"
+          titles={this.state.titles}
+          separateHeight={3}
+          separateColor="#dddddd"
+          backgroundColor="rgba(0, 0, 0, 0.3)"
+          containerStyle={{margin: 10, borderRadius: 5}}
+          onClose={(obj) => {console.log('action sheet closed! clicked:' + JSON.stringify(obj));}}
+      />
           <Header style={{backgroundColor:'#00dfbe'}}>
           <Left>
-            <Text>
-              <Icon style={{color:'#fff'}} name='arrow-back'/>
-            </Text>
+            <TouchableOpacity>
+              <Icon onPress={() => navigation.goBack(null)} style={{color:'#fff'}} name='arrow-back'/>
+            </TouchableOpacity>
           </Left>
           <Body>
             <Title style={styles.textHeader}>Dzikir Sore</Title>
@@ -72,9 +84,14 @@ export default class SoreScreen extends React.Component {
               <MenuItem
                 onPress={() => this._hideText()}
               >Hidden Text</MenuItem>
-              <MenuItem>Font Size</MenuItem>
+              <MenuItem
+                onPress={() => this._hideText()}
+              >Show Text</MenuItem>
+              <MenuItem 
+                onPress={() => {this.setState({titles: this.customTitles}, () => {this.refs.picker.show();})
+                this.hideMenu();}}
+              >Font Size</MenuItem>
             </Menu>
-              
             </Button>
           </Right>
         </Header>
@@ -105,5 +122,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 0,
     letterSpacing: 2,
     marginLeft:-20
-  }
+  },
+  menuSetting: {
+    marginTop: 27,
+    borderRadius:0
+  },
 });

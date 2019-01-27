@@ -8,7 +8,7 @@ import DzikirPagiSugro from '../../data/DzikirPagiSugro';
 export default class SugroPagiScreen extends React.Component {
   
     render() {
-      const { navigation } = this.props;
+      const { navigation, font } = this.props;
   
       return (
         <View style={{flex:1, backgroundColor:'#ecf2f5'}}>
@@ -19,7 +19,7 @@ export default class SugroPagiScreen extends React.Component {
             {DzikirPagiSugro.map((sugro, index) =>
               <View key={index} style={{backgroundColor:'#ffffff', marginTop:10, padding:12}}>
                 <Text style={styles.textJudul}>{sugro.headerTitle}</Text>
-                <Text style={styles.textArab}>{sugro.arab}</Text>
+                <Text style={[styles.textArab]}>{sugro.arab}</Text>
                 {
                   this.props.status ? <Text style={styles.textArabLatin}>{sugro.arablatin}</Text> : null
                 }
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     color:'#666666'
  },
  textArab: {
-    fontSize:30,
+  fontSize:30,
     fontFamily: 'lotus-linotype-light',
     color:'#333333',
     marginTop:5

@@ -4805,6 +4805,11 @@ react-native-vector-icons@6.1.0, react-native-vector-icons@^6.1.0:
     prop-types "^15.6.2"
     yargs "^8.0.2"
 
+react-native-zhb-actionsheet@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-zhb-actionsheet/-/react-native-zhb-actionsheet-1.2.0.tgz#789c64565966c24eb7b98718ecf2aa14a1192134"
+  integrity sha512-lzFcKga56SQG+TEBjhqltd2wJG2m+0rQZse29OIpuNem2ZW0p/qBird/yzgyLCrm3YAT+tA2baW76eoRkEHBJw==
+
 react-native@0.57.8:
   version "0.57.8"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.57.8.tgz#1a840fbe144cd3902cc14313a783ce28efc48cb9"

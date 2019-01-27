@@ -2,6 +2,7 @@ import React from 'react';
 import { Tab, Tabs, TabHeading,Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
 import { View,TouchableOpacity,Image, Text,StyleSheet } from 'react-native';
 import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
+import ActionSheet from 'react-native-zhb-actionsheet';
 // import { createStackNavigator, createAppContainer } from 'react-navigation';
 import Tab1 from './SugroPagiScreen';
 import Tab2 from './KubroPagiScreen';
@@ -10,8 +11,11 @@ import Tab2 from './KubroPagiScreen';
 export default class PagiScreen extends React.Component {
   constructor(props) {
     super(props);
+    // this.customTitles = [{title: 27}, {title: 28}, {title: 29}, {title: 30}, {title: 31}, {title: 32}, {title: 33}, {title: 34}];
     this.state = {
       status:true,
+      // titles:this.customTitles,
+      // font: 30,
     };
   }
  
@@ -42,6 +46,12 @@ export default class PagiScreen extends React.Component {
      this.hideMenu();
   }
 
+  // changeFontSize(font) {
+  //   this.setState({
+  //     font:font
+  //   })
+  // }
+
 
   render() {
     const { navigation } = this.props;
@@ -50,9 +60,9 @@ export default class PagiScreen extends React.Component {
       <View style={{ flex: 1,backgroundColor:'#ecf2f5' }}>
           <Header style={{backgroundColor:'#00dfbe'}}>
           <Left>
-            <Text>
-              <Icon style={{color:'#fff'}} name='arrow-back'/>
-            </Text>
+            <TouchableOpacity>
+              <Icon onPress={() => navigation.goBack(null)} style={{color:'#fff'}} name='arrow-back'/>
+            </TouchableOpacity>
           </Left>
           <Body>
             <Title style={styles.textHeader}>Dzikir Pagi</Title>
@@ -75,15 +85,13 @@ export default class PagiScreen extends React.Component {
               <MenuItem
                 onPress={() => this._hideText()}
               >Show Text</MenuItem>
-              <MenuItem>Font Size</MenuItem>
             </Menu>
-              
             </Button>
           </Right>
         </Header>
          <Tabs>
           <Tab heading={ <TabHeading style={{backgroundColor:'#ecf2f5'}}><Text style={styles.textTab}>Praktis</Text></TabHeading>}>
-            <Tab1 status={this.state.status} />
+            <Tab1 status={this.state.status}/>
           </Tab>
           <Tab heading={ <TabHeading style={{backgroundColor:'#ecf2f5'}}><Text style={styles.textTab}>Lengkap</Text></TabHeading>}>
             <Tab2 status={this.state.status}/>
